@@ -1,0 +1,13 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2>Quiz</h2>
+<p>You will have @Model.Quizzes.Count questions to answer.</p>
+<p>
+    Click <a asp-page="/Quiz">
+        <button>Start </button>
+    </a> to start the quiz.
+</p>

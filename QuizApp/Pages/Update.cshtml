@@ -1,0 +1,23 @@
+﻿@page "{id:int}"
+@model QuizApp.Pages.UpdateModel
+@{
+	ViewData["Title"] = "Update";
+}
+
+<h2>Edit Question</h2>
+
+<form method="post" asp-page-handler="Edit">
+    <div>
+        <label>Question:</label>
+        <input type="text" name="question" value="@Model.Question" />
+    </div>
+    <div>
+        <label>Answers (comma separated):</label>
+        <input type="text" name="answers" value="@string.Join(",", Model.Answers)" />
+    </div>
+    <div>
+        <label>Correct Answer:</label>
+        <input type="text" name="correctAnswer" value="@Model.CorrectAnswer" />
+    </div>
+    <button type="submit">Save</button>
+</form>

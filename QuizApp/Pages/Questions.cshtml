@@ -1,0 +1,37 @@
+﻿@page
+@model QuizApp.Pages.QuestionsModel
+@{
+	ViewData["Title"] = "Questions";
+}
+<h2>Questions</h2>
+@foreach(var quiz in Model.Quizzies){
+	<p>@quiz.Question</p>
+	<!-- Edit form -->
+	<form method="get" asp-page="/Update" asp-route-id="@quiz.Id">
+		<button type="submit">Edit</button>
+	</form>
+	
+	<!-- Delete form -->
+	<form method="post">
+		<button type="submit" asp-page-handler="Delete" asp-route-id="@quiz.Id">Delete</button>
+	</form>
+}
+<br />
+<!-- Add New Question form -->
+<h3>Add a New Question:</h3>
+<form method="post" asp-page-handler="Add">
+	<div>
+		<label>Question:</label>
+		<input type="text" asp-for="NewQuiz.Question"/>
+	</div>
+	<div>
+		<label>Answers (comma seperated):</label>
+		<input type="text" asp-for="NewQuizAnswerList" />
+	</div>
+	<div>
+		<label>Correct Answer:</label>
+		<input type="text" asp-for="NewQuiz.CorrectAnswer" />
+	</div>
+
+	<button type="submit">Add Question</button>
+</form>
